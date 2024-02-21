@@ -14,7 +14,7 @@ docker imageのビルドは割と時間がかかります．
 
 それぞれの環境構築に関しては自力でしてください\
 YoutubeとかでDocker入門とかで調べて\
-僕が参考にさせていただいたのは[https://www.youtube.com/watch?v=DNnW4I43wyU]です
+僕が参考にさせていただいたのは[https://www.youtube.com/watch?v=DNnW4I43wyU]
 
 ## ターミナル上でのcommand操作(windows)
 ### wsl2を用いてubuntuリモート環境を開く(コマンドターミナルで順番に打ち込む)
