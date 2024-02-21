@@ -1,0 +1,79 @@
+%パッケージ定義など
+\documentclass[12pt,a4j, titlepage]{jarticle}
+\usepackage{amsmath,amssymb}
+\usepackage{bm}
+\usepackage{here}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage[dvipdfmx]{color}
+\usepackage{siunitx}
+\usepackage[hyphens]{url}
+\usepackage{color}
+\usepackage{datetime}
+%\usepackage{datetime2} 
+%
+%\DTMcurrenttime←現在時刻(datetime2で使える)
+%
+\makeatletter%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%参考文献に関する設定
+\renewenvironment{thebibliography}[1]
+{\section*{\refname\@mkboth{\refname}{\refname}}%
+  \list{\@biblabel{\@arabic\c@enumiv}}%
+       {\settowidth\labelwidth{\@biblabel{#1}}%
+        \leftmargin\labelwidth
+        \advance\leftmargin\labelsep
+ \setlength\itemsep{-0.3zh}%←ここの数値を調整(行間のつまり具合)
+ %\setlength\baselineskip{11pt}%←ここの数値を調整（追加）(文字の大きさ)
+        \@openbib@code
+        \usecounter{enumiv}%
+        \let\p@enumiv\@empty
+        \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+  \sloppy
+  \clubpenalty4000
+  \@clubpenalty\clubpenalty
+  \widowpenalty4000%
+  \sfcode`\.\@m}
+ {\def\@noitemerr
+   {\@latex@warning{Empty `thebibliography' environment}}%
+  \endlist}
+\makeatother%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%↓↓↓追加by宮堺
+\newcommand{\Fig}{図}%←学会の様式に合わせる{Fig. }
+\newcommand{\Tab}{表}%←学会の様式に合わせる{Table }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%項目
+\newcommand{\Introduction}{緒言}
+\newcommand{\PreviousResearch}{先行研究}
+\newcommand{\SuggestionsIssues}{提案手法とその課題}
+\newcommand{\Suggestions}{提案内容}
+\newcommand{\Issues}{課題}
+\newcommand{\RelatedResearch}{関連研究}
+\newcommand{\Solution}{解決方法}
+\newcommand{\SolutionPartsIdentification}{部品種判定法}
+\newcommand{\SolutionEliminatesDifferencesBetweenDifferentEnvironments}{異環境差除去法}
+\newcommand{\SolutionCoordinateTransformation}{座標変換}
+\newcommand{\SolutionQR}{二次元コード検出}
+\newcommand{\SolutionAR}{ARマーカ検出}
+\newcommand{\Environment}{想定環境と対象ワーク}
+\newcommand{\Recognition}{組立工程認識処理}
+\newcommand{\RecognitionProg}{組立工程認識プログラム}
+\newcommand{\RecognitionExp}{評価実験}
+\newcommand{\RecognitionExpConditions}{実験条件}
+\newcommand{\RecognitionExpResults}{実験結果}
+\newcommand{\RecognitionConsideration}{考察}
+\newcommand{\Reproduction}{組立工程再現処理}
+\newcommand{\ReproductionProg}{組立工程再現プログラム}
+\newcommand{\ObjRecogAlgorithm}{物体認識アルゴリズム}
+\newcommand{\RotationOperationDecisionAlgorithm}{回転操作判断アルゴリズム}
+\newcommand{\ReproductionExp}{評価実験}
+\newcommand{\ReproductionExpConditions}{実験条件}
+\newcommand{\ReproductionExpResults}{実験結果}
+\newcommand{\ReproductionConsideration}{考察}
+\newcommand{\Conclusion}{結言}
+\newcommand{\Summary}{まとめ}
+\newcommand{\SummaryRecognition}{組立工程認識処理}
+\newcommand{\SummaryReproduction}{組立工程再現処理}
+\newcommand{\UpcomingDevelopments}{今後の展開}
+\newcommand{\UpcomingDevelopmentsRecognition}{組立工程認識処理}
+\newcommand{\UpcomingDevelopmentsReproduction}{組立工程再現処理}
+%
+\endinput

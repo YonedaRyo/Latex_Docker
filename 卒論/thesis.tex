@@ -1,0 +1,154 @@
+% !TEX root = thesis.tex
+% !TEX encoding = Shift_JIS
+% !TEX spellcheck = none
+%
+% 2016.06.16 初版
+% 2019.01.04
+% 2020.12.22
+%
+% thesis.tex
+%
+%
+%
+%
+\documentclass[12pt,titlepage]{jsarticle}
+%
+\usepackage[dvipdfmx,draft]{graphicx}	% 自分で加えた	by 野田
+%
+\usepackage{amsmath}			% 自分で加えた	by 野田
+\usepackage{url}					% 自分で加えた	by 野田
+\usepackage{comment}			% 自分で加えた	by 野田
+\usepackage{supertabular}		% 自分で加えた	by 野田
+\usepackage{cite}					% 自分で加えた	by 野田
+\usepackage{here}				% 自分で加えた	by 野田
+
+%\usepackage[footskip=11truemm,top=15truemm,bottom=20truemm,left=20truemm,right=15truemm]{geometry} %ページの余白を調整したいときは，ここの数字を触る．実寸のミリメートル
+
+%●nag Detecting and warn?ing about obsolete LaTeX commands
+%  http://www.ctan.org/tex-archive/macros/latex/contrib/nag
+%  LaTeX文書の冒頭に
+%\RequirePackage[l2tabu, orthodox]{nag}
+%  と書いておくと古いコマンドやパッケージの利用を警告してくれます．
+%
+%●onlyamsmath  Inhibit use of non-amsmath mathe?matics markup when using amsmath
+%  http://www.ctan.org/tex-archive/macros/latex/contrib/onlyamsmath
+%\usepackage[all, warning]{onlyamsmath}
+% で amsmath が提供しない数式環境を使用した場合に警告してくれます．
+
+
+
+\title{\vspace{-15mm}{\LARGE 2022年度　卒業論文}\\\vspace{25mm}
+\huge 製造業向けロボットを知能化する\\自律システムアルゴリズムの研究\vspace{20mm}\\}
+%
+
+\author{ 
+\Large 大阪工業大学　ロボティクス＆デザイン工学部\\\\
+\vspace{5mm}\Large ロボット工学科\\
+\vspace{5mm}\Large %産業用ロボット研究室
+\vspace{0mm}\\
+{\huge 工大　ロボ太郎} \vspace{14.5mm}\\
+\\\Large 指導教員\\\\\vspace{-4.0mm}
+\vspace{0mm}\Large 野田　哲男　%印
+}
+
+%
+\date{}
+
+%
+\begin{document}
+
+\maketitle
+\newpage
+%
+% 内容梗概
+%
+\thispagestyle{empty}
+\section*{内容梗概}
+\input{Abstract}
+
+%
+% 目次
+%
+\newpage
+\pagenumbering{roman} % NODA added
+\setcounter{page}{1}    % NODA added
+\tableofcontents
+\newpage
+\listoffigures
+\listoftables
+\newpage
+%
+\pagenumbering{arabic} % NODA added
+\setcounter{page}{1}    % NODA added
+
+%
+%
+% 本文
+%
+%
+
+% for DEBUG % 
+\input{Section1}
+% for DEBUG % 
+
+
+% for DEBUG % \setcounter{chapter}{1}
+% for DEBUG % 
+\input{Section1}
+% for DEBUG % 
+
+
+% for DEBUG % \setcounter{chapter}{2}  
+% for DEBUG % 
+\input{Section1}
+% for DEBUG % 
+
+
+% for DEBUG % \setcounter{chapter}{3}
+% for DEBUG % 
+\input{Section1}
+% for DEBUG % 
+\input{Section1}
+% for DEBUG % 
+
+
+% for DEBUG % \setcounter{chapter}{4}
+% for DEBUG % 
+\input{Section1}
+% for DEBUG % 
+
+
+% for DEBUG % \setcounter{chapter}{5}
+% for DEBUG % 
+\input{Section1}
+% for DEBUG % 
+
+
+% for DEBUG % \setcounter{chapter}{6}
+% for DEBUG % 
+\input{Section1}
+% for DEBUG % 
+
+
+% for DEBUG % 
+\newpage
+
+%参考文献
+\small
+\bibliographystyle{jrsj}
+\bibliography{Reference}
+\normalsize
+%\input{TheBibliography}%参考文献
+% for DEBUG % 
+
+
+% for DEBUG % 
+\input{Acknowledgements}%謝辞
+%\newpage
+%\thispagestyle{empty}
+
+
+
+\end{document}
+
+

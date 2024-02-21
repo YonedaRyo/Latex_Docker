@@ -1,0 +1,156 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  master_abstract.sty
+%  大阪工業大学修士論文概要用スタイルファイル
+%  使い方  \documentclass[a4paper]{jarticle}
+%          \usepackage{master_abstract_noeng}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%種々のスタイルファイルの読み込み%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{ascmac}%
+
+\def\dopics{\par\vskip\parskip\centerline{\box\graph}}%\vskip\parskip}%
+\def\dopic{\par\vskip\parskip\centerline{\box\graph}\vskip\parskip\par}%
+
+%%%ページスタイル%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{empty}%
+\raggedbottom%
+
+%%% 参考文献の設定
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewenvironment{thebibliography}[1]
+{\section*{\refname\@mkboth{\refname}{\refname}}%
+  \list{\@biblabel{\@arabic\c@enumiv}}%
+       {\settowidth\labelwidth{\@biblabel{#1}}%
+        \leftmargin\labelwidth
+        \advance\leftmargin\labelsep
+ \setlength\itemsep{-0.5zh}%←ここの数値を調整(行間のつまり具合)
+ \setlength\baselineskip{10pt}%←ここの数値を調整（追加）(文字の大きさ)
+        \@openbib@code
+        \usecounter{enumiv}%
+        \let\p@enumiv\@empty
+        \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+  \sloppy
+  \clubpenalty4000
+  \@clubpenalty\clubpenalty
+  \widowpenalty4000%
+  \sfcode`\.\@m}
+ {\def\@noitemerr
+   {\@latex@warning{Empty `thebibliography' environment}}%
+  \endlist}
+%%%マージンの設定%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\setlength{\topmargin}{10mm}      %用紙上の余白 25mm
+%\addtolength{\topmargin}{-1in}    %標準のマージン(1inch)を引く
+\setlength{\textheight}{250mm}    %本文全体の高さ 297-(25+22)=250
+
+%\setlength{\oddsidemargin}{20mm}
+%\addtolength{\oddsidemargin}{-1in}   %奇数ページの標準のマージン(1inch)を引く
+%\setlength{\evensidemargin}{\oddsidemargin}
+%\addtolength{\evensidemargin}{-1in}  %偶数ページの標準のマージン(1inch)を引く
+\setlength{\textwidth}{170mm}        %本文全体の幅 210-(15+25)=170 右余白25mm
+\setlength{\columnsep}{10mm}
+
+%%%文字間隔，行送りの設定%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\kanjiskip = -0.05zw plus 0.1zw %minus 0.05zw
+\renewcommand{\baselinestretch}{0.93} %51行分
+
+%%% 字下げは漢字１文字%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\parindent = 1zw%
+
+%%% アイテムのフォント%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+\renewcommand{\labelenumii}{(\alph{enumii})}
+\renewcommand{\labelitemi}{・}
+\renewcommand{\labelitemii}{\bf --}
+\renewcommand{\labelitemiii}{*}
+\renewcommand{\topfraction}{1.0}
+\renewcommand{\textfraction}{0.0}
+\renewcommand{\bottomfraction}{1.0}
+\let\OLDitemize\itemize
+\renewcommand\itemize{\OLDitemize\addtolength{\itemsep}{-3mm}}
+\renewcommand\itemize{\OLDitemize\addtolength{\parskip}{-4mm}}
+\let\OLDenumerate\enumerate
+\renewcommand\enumerate{\OLDenumerate\addtolength{\topsep}{-4mm}}
+\renewcommand\enumerate{\OLDenumerate\addtolength{\itemsep}{-3mm}}
+\renewcommand\enumerate{\OLDenumerate\addtolength{\parskip}{-4mm}}
+
+\let\OLDeqnarray\eqnarray
+\renewcommand\eqnarray{\OLDeqnarray\addtolength{\itemsep}{-3mm}}
+
+%%% 章，節のフォント%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\section}{\@startsection{section}{1}{0.3zw}%
+   {0.3\Cvs \@plus.5\Cvs \@minus.2\Cvs}%
+   {.1\Cvs \@plus.1\Cvs}%
+   {\normalfont\centering\normalsize \textbf}}
+%\renewcommand{\thesection}{\arabic{section}.}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{0.3zw}%
+   {1sp minus 2sp}%
+   {1sp minus 2sp}%
+   {\normalfont\normalsize\textbf}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{0.3zw}%
+   {1sp minus 2sp}%
+   {1sp minus 2sp}%
+   {\normalfont\normalsize\textbf}}
+
+%%% 図番，表番%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\abovecaptionskip}{1mm}
+\setlength{\belowcaptionskip}{1mm}
+\setlength\intextsep{3mm}
+\def\fnum@figure{Fig. \thefigure}  %図 -> fig.
+\def\fnum@table{Table \thetable}  %表 -> Table %2019修正
+
+%%%タイトルコマンドの制作%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\maketitle{%
+  \par%
+  \begingroup%
+    \def\thefootnote{\fnsymbol{footnote}}%
+    \def\@makefnmark{\hbox to 0pt{$^{\@thefnmark}$\hss}}%
+    \if@twocolumn \twocolumn[\@maketitle]%
+    \else%
+      \newpage%
+      \global\@topnum\z@%
+      \@maketitle%
+    \fi%
+    \thispagestyle{empty}%
+    \@thanks%
+  \endgroup%
+  \setcounter{footnote}{0}%
+  \let\maketitle=\relax%
+  \let\@maketitle=\relax%
+  \gdef\@id{}%
+  \gdef\@title{}%
+  \gdef\@etitle{}%
+  \gdef\@lab{}%
+  \gdef\@name{}%
+  \gdef\@tname{}%
+  \gdef\@ename{}%
+}%
+
+\def\@maketitle{%
+  \twocolumn[
+  %\newpage%
+  \begin{flushleft}
+    \fontsize{11pt}{0pt}\selectfont
+    \indent
+    {\bf \@id \par}
+  \end{flushleft}
+  \null%
+  \vskip 1em%
+  \begin{center}%
+      {\fontsize{15pt}{0pt}\selectfont \@title\par}%
+    \vspace*{1em}%
+    {\fontsize{11pt}{0pt}\selectfont \@name\hspace{27pt}指導教員：\@tname \par}
+    \vspace*{0.4em}%
+      {\fontsize{13pt}{0pt}\selectfont \@etitle\par}%
+    \vspace*{1em}%
+    {\fontsize{11pt}{0pt}\selectfont \@ename \par}
+  \end{center}%
+  \vskip 1em%
+  ]
+}%
+\def\id#1{\long\gdef\@id{#1}}%
+\def\title#1{\long\gdef\@title{#1}}%
+\def\etitle#1{\long\gdef\@etitle{#1}}%
+\def\name#1{\long\gdef\@name{#1}}%
+\def\tname#1{\long\gdef\@tname{#1}}%
+\def\ename#1{\long\gdef\@ename{#1}}%
