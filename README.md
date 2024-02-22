@@ -20,7 +20,10 @@ YoutubeとかでDocker入門とかで調べて\
 
 ## ターミナル上でのcommand操作(windows)
 ### wsl2を用いてubuntuリモート環境を開く(コマンドターミナルで順番に打ち込む)
-1. PowerShell
+1. PowerShellを開く
+'''
+PowerShell
+'''
 2. ubuntu
 ### wls接続でリモート接続後にファイルを置くフォルダの作成
 3. mkdir Latex (Latex部分はファイル名なので好きに変えてください)
