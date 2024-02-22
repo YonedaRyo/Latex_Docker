@@ -21,13 +21,22 @@ YoutubeとかでDocker入門とかで調べて\
 ## ターミナル上でのcommand操作(windows)
 ### wsl2を用いてubuntuリモート環境を開く(コマンドターミナルで順番に打ち込む)
 1. PowerShellを開く
-'''
+```
 PowerShell
-'''
-2. ubuntu
+```
+2. ubuntuを開く
+```
+Ubuntu
+```
 ### wls接続でリモート接続後にファイルを置くフォルダの作成
-3. mkdir Latex (Latex部分はファイル名なので好きに変えてください)
-4. ls (作成したフォルダが存在するか確認)
+3. Ubuntu環境内に作業ディレクトリを作成 (Latex部分はファイル名なので好きに変えてください)
+```
+mkdir Latex
+```
+4. 作成したディレクトリが存在するか確認
+```
+ls
+```
 5. cd Latex (作成したフォルダに入る)
 6. code (VScodeでWSL接続で入る)
 - VScode上でmkdirで作成したファイルを開きDockerfile等をドラック&ドロップする
