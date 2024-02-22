@@ -37,8 +37,14 @@ mkdir Latex
 ```
 ls
 ```
-5. cd Latex (作成したフォルダに入る)
-6. code (VScodeでWSL接続で入る)
+5. 作業ディレクトリに入る
+```
+cd Latex
+```
+6. VScodeをWSL接続で開く
+```
+code
+```
 - VScode上でmkdirで作成したファイルを開きDockerfile等をドラック&ドロップする
 ### docker imageの作成
 7. docker image build -t latex:latest . (latexというレポジトリでビルドする)
