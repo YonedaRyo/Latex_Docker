@@ -47,17 +47,32 @@ code
 ```
 - VScode上でmkdirで作成したファイルを開きDockerfile等をドラック&ドロップする
 ### docker imageの作成
-7. docker image build -t latex:latest . (latexというレポジトリでビルドする)
-8. docker image ls (ビルドしたimageの一覧でlatexが存在するか確認)
-
+7. latexというレポジトリでビルドする
+```
+docker image build -t latex:latest .
+```
+8. ビルドしたimageの一覧でlatexが存在するか確認
+```
+docker image ls
+```
 困ったときのコマンド一覧はdokker --helpで見れます
 ### 卒論や修論などbibを用いたコンパイル手順
 作成したdocker imageを使ってlatexのソースをビルドする\
 コマンドプロンプトでcdコマンドからコンパイルしたいファイルが入っている構造下に入る必要あり\
 例えば，卒論テンプレを使用する場合は{cd 卒論}と打つ\
 VScodeのTERMINALでビルドも可能
-- docker run --rm -v ${PWD}:/texsrc latex platex {ファイル名}.tex
-- docker run --rm -v ${PWD}:/texsrc latex pbibtex {ファイル名}
-- docker run --rm -v ${PWD}:/texsrc latex platex {ファイル名}.tex
-- docker run --rm -v ${PWD}:/texsrc latex platex {ファイル名}.tex
-- docker run --rm -v ${PWD}:/texsrc latex dvipdfmx {ファイル名}
+```
+docker run --rm -v ${PWD}:/texsrc latex platex {ファイル名}.tex
+```
+```
+docker run --rm -v ${PWD}:/texsrc latex pbibtex {ファイル名}
+```
+```
+docker run --rm -v ${PWD}:/texsrc latex platex {ファイル名}.tex
+```
+```
+docker run --rm -v ${PWD}:/texsrc latex platex {ファイル名}.tex
+```
+```
+docker run --rm -v ${PWD}:/texsrc latex dvipdfmx {ファイル名}
+```
